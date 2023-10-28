@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react"
 import { DocumentHelper } from "../../helpers/document/document.helper"
 import axios from "axios"
-import InsecureSql from "../../assets/insecure/Insecure_sql.ico"
-import "./sign-up-insecure.page.scss"
+import SecureSql from "../../assets/secure/Secure_sql.ico"
+import "./sign-up-secure.page.scss"
 import { toast } from "react-toastify"
 
-const SignUpPageInsecure = () => {
+const SignUpSecurePage = () => {
   const [form, setForm] = useState({
     user: '',
     password: '',
@@ -15,8 +15,8 @@ const SignUpPageInsecure = () => {
 
   useEffect(() => {
     const documentHelper = new DocumentHelper()
-    documentHelper.setDocumentTitle("TCC - Login Inseguro")
-    documentHelper.setDocumentFavicon(InsecureSql)
+    documentHelper.setDocumentTitle("TCC - Login Seguro")
+    documentHelper.setDocumentFavicon(SecureSql)
   }, []);
 
   const handleChange = useCallback(
@@ -32,23 +32,23 @@ const SignUpPageInsecure = () => {
   const submit = useCallback(
     async () => {
       try {
-        const response = await axios.post('http://127.0.0.1:5000/login/insecure', form)
+        const response = await axios.post('http://127.0.0.1:5000/login/secure', form)
         response.data.forEach((userData: any) => {
           users.push({id: userData[0], user: userData[1], password: userData[2]})
         })
-        toast.success('Sucesso')
         setUsers([...users])
+        toast.success('Sucesso')
       } catch(error: any) {
-        toast(error.response.data.message)
+        toast.error(error.response.data.mensagem)
       }
     },
     [form, users]
   )
 
   return (
-    <main className="sign-up-insecure-page">
-      <h1>Login Inseguro</h1>
-      <img src={InsecureSql} alt="Insecure SQL" />
+    <main className="sign-up-secure-page">
+      <h1>Login Seguro</h1>
+      <img src={SecureSql} alt="Insecure SQL" />
       <form>
         <div className="wrapper-input">
           <label htmlFor="input-user">Usuário</label>
@@ -75,4 +75,4 @@ const SignUpPageInsecure = () => {
   )
 }
 
-export default SignUpPageInsecure
+export default SignUpSecurePage
