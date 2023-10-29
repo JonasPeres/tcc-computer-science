@@ -1,25 +1,14 @@
 .sign-up-insecure-page {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  form {
-    width: 400px;
-    display: grid;
-    gap: 1rem;
-    .wrapper-input {
-      display: grid;
-      gap: 1rem;
-    }
-  }
-  button {
-    margin-top: 2rem;
-  }
-  .card {
+  img {
     width: 250px;
+  }
+  .wrapper-boxes {
     margin-top: 1rem;
-    padding: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 10px;
+    display: flex;
+    gap: 1rem;
+    .box {
+      max-width: 280px;
+      border-radius: 10px;
+    }
   }
 }

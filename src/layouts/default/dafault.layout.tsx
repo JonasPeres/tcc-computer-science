@@ -1,38 +1,31 @@
-
 import { useState } from 'react'
-import { Link } from "react-router-dom";
-import MenuPng from '../../assets/png/menu.png'
-import ArrowPng from '../../assets/png/arrow.png'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { Link } from 'react-router-dom'
 import './dafault.layout.scss'
 
-const DefaultLayout = (Props: {children: any}) => {
+const DefaultLayout = (Props: { children: any }) => {
   const [open, setOpen] = useState(false)
 
   return (
     <div className="default-layout">
       <nav className={open ? 'open' : ''}>
-        <img src={open ? ArrowPng : MenuPng} alt="Menu" onClick={() => setOpen(!open)}/>
+        <div className="icon-control">
+          <i role="button" className={`fa-solid ${open ? 'fa-arrow-left-to-line' : 'fa-bars'}`} onClick={() => setOpen(!open)} />
+        </div>
         {open ? (
           <div>
-            <Link to="login/insecure">
-              <h5>
-                Login Inseguro
-              </h5>
+            <Link to="login/insecure" onClick={() => setOpen(false)}>
+              <h5>Login Inseguro</h5>
             </Link>
-            <Link to="login/secure">
-              <h5>
-                Login Seguro
-              </h5>
+            <Link to="login/secure" onClick={() => setOpen(false)}>
+              <h5>Login Seguro</h5>
             </Link>
           </div>
         ) : null}
       </nav>
-      <div className='page-content'>
-        {Props.children}
-      </div>
-      <ToastContainer />
+      <header>
+        <h1>Trabalho de Conclusão de Curso (Jonas e Giovanni)</h1>
+      </header>
+      <div className="page">{Props.children}</div>
     </div>
   )
 }

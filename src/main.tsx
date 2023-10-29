@@ -1,9 +1,10 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import DefaultLayout from "./layouts/default/dafault.layout";
-import SignUpInsecurePage from "./pages/sign-up-insecure/sign-up-insecure.page";
-import SignUpSecurePage from "./pages/sign-up-secure/sign-up-secure.page";
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
+import DefaultLayout from './layouts/default/dafault.layout'
+import SignUpInsecurePage from './pages/sign-up-insecure/sign-up-insecure.page'
+import SignUpSecurePage from './pages/sign-up-secure/sign-up-secure.page'
+import Toast from '@squidit/css/src/js/components/toast'
+import './main.scss'
 
 function NoMatch() {
   return (
@@ -12,10 +13,13 @@ function NoMatch() {
         Rota "<code>{useLocation().pathname}</code>" não econtrada
       </h1>
     </div>
-  );
+  )
 }
 
 export default function App() {
+  Toast: typeof Toast
+  window['Toast' as any] = Toast
+
   return (
     <BrowserRouter>
       <DefaultLayout>
@@ -32,13 +36,11 @@ export default function App() {
           />
           <Route path="login/insecure" element={<SignUpInsecurePage />} />
           <Route path="login/secure" element={<SignUpSecurePage />} />
-          <Route path="*" element={<NoMatch />}/>
+          <Route path="*" element={<NoMatch />} />
         </Routes>
       </DefaultLayout>
     </BrowserRouter>
-  );
+  )
 }
 
-// @ts-ignore
-const root = ReactDOM.createRoot(document?.getElementById('root'));
-root.render(<App />);
+ReactDOM.createRoot((document as any)?.getElementById('root')).render(<App />)
