@@ -64,8 +64,8 @@ const SignUpPageInsecure = () => {
       </button>
       {users.map((user: any) => {
         return (
-          <div key={user.id}>
-            <p>Id: {user.id}</p>
+          <div className="card" key={user.id}>
+            <p>Número do registro no banco: {user.id}</p>
             <p>Usuário: {user.user}</p>
             <p>Senha: {user.password}</p>
           </div>
