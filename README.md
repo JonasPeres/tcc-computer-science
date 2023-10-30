@@ -1,5 +1,7 @@
 # tcc-computer-science
 
+This project is related to my computer science course completion work, where we are exhibiting a SQL Injection vulnerability and showing what a safe case would be like.
+
 ## Project Setup
 
 ```sh
