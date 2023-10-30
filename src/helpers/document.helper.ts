@@ -4,7 +4,7 @@ export class DocumentHelper {
   }
 
   setDocumentFavicon(favicon: any) {
-    let link: any = document.querySelector("link[rel~='icon']")
+    let link: any = document.querySelector('link[rel~=\'icon\']')
     if (!link) {
       link = document.createElement('link')
       link.rel = 'icon'

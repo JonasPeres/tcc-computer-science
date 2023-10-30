@@ -1,6 +1,6 @@
-import Loader from '../loader/loader.component'
-import ColorsHelper from '../../helpers/colors.helper'
 import React, { PropsWithChildren, useState } from 'react'
+import ColorsHelper from '../../helpers/colors.helper'
+import Loader from '../loader/loader.component'
 import './button.component.scoped.scss'
 
 interface Props extends PropsWithChildren<React.HTMLAttributes<HTMLDivElement>> {
@@ -92,7 +92,7 @@ export default ({
     'white',
   ]
 
-  const handleClick = (event) => {
+  const handleClick = (event: any) => {
     if (!loading && !disabled && onClick && typeof onClick === 'function') {
       onClick(event)
     }
@@ -141,10 +141,10 @@ export default ({
       }
       id={id ? id : timestamp}
       style={{
-        backgroundColor: !presetColors.includes(color) ? (hover ? getHoverBg() : color) : null,
-        borderColor: !presetColors.includes(color) ? (hover ? getHover(borderColor || textColor) : borderColor || textColor) : null,
+        backgroundColor: !presetColors.includes(color) ? (hover ? getHoverBg() : color) : undefined,
+        borderColor: !presetColors.includes(color) ? (hover ? getHover(borderColor || textColor) : borderColor || textColor) : undefined,
         borderStyle: borderStyle,
-        color: !presetColors.includes(color) ? (hover ? getHoverText() : textColor) : null,
+        color: !presetColors.includes(color) ? (hover ? getHoverText() : textColor) : undefined,
         padding: customPadding,
         width: width,
         ...style,

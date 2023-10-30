@@ -1,5 +1,5 @@
-import Loader from '../loader/loader.component'
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react'
+import Loader from '../loader/loader.component'
 import './input.component.scoped.scss'
 import './input.component.scss'
 

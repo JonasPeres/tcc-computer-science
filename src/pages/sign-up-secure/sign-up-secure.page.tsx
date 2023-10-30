@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { DocumentHelper } from '../../helpers/document.helper'
 import axios from 'axios'
-import SecureSql from '../../assets/secure/Secure_sql.ico'
-import './sign-up-secure.page.scss'
-import Input from '../../components/input/input.component'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import SecureSql from '../../assets/Secure_sql.ico'
 import Button from '../../components/button/button.component'
+import Input from '../../components/input/input.component'
+import { DocumentHelper } from '../../helpers/document.helper'
 import ToastHelper from '../../helpers/toast.helper'
+import './sign-up-secure.page.scss'
 
 const SignUpSecurePage = () => {
   const toast = useMemo(() => new ToastHelper().toast, [])

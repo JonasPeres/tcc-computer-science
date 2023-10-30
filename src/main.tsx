@@ -17,6 +17,7 @@ function NoMatch() {
 }
 
 export default function App() {
+  // eslint-disable-next-line no-labels
   Toast: typeof Toast
   window['Toast' as any] = Toast
 

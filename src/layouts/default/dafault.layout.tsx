@@ -9,7 +9,8 @@ const DefaultLayout = (Props: { children: any }) => {
     <div className="default-layout">
       <nav className={open ? 'open' : ''}>
         <div className="icon-control">
-          <i role="button" className={`fa-solid ${open ? 'fa-arrow-left-to-line' : 'fa-bars'}`} onClick={() => setOpen(!open)} />
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+          <i className={`fa-solid ${open ? 'fa-arrow-left-to-line' : 'fa-bars'}`} onClick={() => setOpen(!open)} />
         </div>
         {open ? (
           <div>
