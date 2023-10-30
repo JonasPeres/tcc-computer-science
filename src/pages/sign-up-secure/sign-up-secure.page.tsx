@@ -28,7 +28,7 @@ const SignUpSecurePage = () => {
         [field]: value,
       })
     },
-    [form]
+    [form],
   )
 
   const submit = useCallback(async () => {

@@ -103,7 +103,7 @@ export default ({
         onBlur(state.value, event)
       }
     },
-    [onBlur, state.value]
+    [onBlur, state.value],
   )
 
   const handleChange = (event: any) => {
