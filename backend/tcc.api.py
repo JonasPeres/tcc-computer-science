@@ -32,6 +32,7 @@ def loginInsecure():
       conn.close()
 
 @app.route('/login/secure', methods=['POST'])
+@cross_origin()
 def loginSecure():
   if request.method == 'POST':
     user = request.json['user']
