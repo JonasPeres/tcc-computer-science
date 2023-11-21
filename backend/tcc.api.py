@@ -13,7 +13,6 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def loginInsecure():
   if request.method == 'POST':
-    print(request.json)
     sql = "SELECT * FROM users WHERE user = '" + request.json['user'] + "'" + "AND password = '" + request.json['password'] + "'"
     try:
       conn = sqlite3.connect('tcc.db')
